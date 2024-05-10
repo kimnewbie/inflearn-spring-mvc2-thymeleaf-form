@@ -27,11 +27,18 @@ public class ItemRepository {
         return new ArrayList<>(store.values());
     }
 
+    // 체크박스 관련해서 업데이트 수정
     public void update(Long itemId, Item updateParam) {
         Item findItem = findById(itemId);
         findItem.setItemName(updateParam.getItemName());
         findItem.setPrice(updateParam.getPrice());
         findItem.setQuantity(updateParam.getQuantity());
+        
+        // 수정
+        findItem.setOpen(updateParam.getOpen());
+        findItem.setRegions(updateParam.getRegions());
+        findItem.setItemType(updateParam.getItemType());
+        findItem.setDeliveryCode(updateParam.getDeliveryCode());
     }
 
     public void clearStore() {
